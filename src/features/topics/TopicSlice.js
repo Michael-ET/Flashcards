@@ -15,10 +15,17 @@ const options = {
               name: name,
               icon: icon,
               quizIds: []
-            };
+            }
+
+        },
+        addQuiz: (state, action) => {
+            const { quizId, topicId } = action.payload;
+            state.topics[topicId].quizIds.push(quizId)
+              
+            }
         }
     }
-}
+
 export const topicSlice = createSlice(options);
 // selectors
 export const selectTopics = (state) => options.initialState.topics;
