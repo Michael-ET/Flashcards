@@ -29,8 +29,9 @@ export const quizzThunk = quiz => {
     }
 }
 
+console.log(state.quizzes.quizzes)
 
 export const quizSlice = createSlice(options);
-export const selectQuiz = (state) => options.initialState.quizzes;
+export const selectQuiz = state => options.initialState.quizzes;
 export const { addQuiz } = quizSlice.actions;
 export default quizSlice.reducer;
