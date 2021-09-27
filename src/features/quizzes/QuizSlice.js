@@ -18,20 +18,20 @@ const options = {
             };
         }
     }
-}
+};
 
 //action creator returning 
 export const quizzThunk = quiz => {
     const { quizId, name, topicId, cardIds } = quiz;
-    return (dispatch) =>{     
+    return (dispatch) => {     
         dispatch(quizSlice.actions.addQuiz(quiz));
         dispatch(addQuizId( { quizId: quizId, topicId: topicId } ));
     }
-}
+};
 
-console.log(state.quizzes.quizzes)
+
 
 export const quizSlice = createSlice(options);
-export const selectQuiz = state => options.initialState.quizzes;
+export const selectQuiz = (state) => state.quizzes.quizzes;
 export const { addQuiz } = quizSlice.actions;
 export default quizSlice.reducer;
