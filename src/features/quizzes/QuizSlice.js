@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { addQuizId } from '../topics/TopicSlice';
+import { selectTopics } from '../features/topics/TopicSlice';
+
 
 //state slice
 const options = {
@@ -22,6 +24,9 @@ const options = {
 
 //action creator returning 
 export const quizzThunk = quiz => {
+    if (selectTopics === {}){
+        alert('please first add a topic')
+    }
     const { quizId, name, topicId, cardIds } = quiz;
     return (dispatch) => {     
         dispatch(quizSlice.actions.addQuiz(quiz));
