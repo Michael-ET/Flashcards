@@ -10,9 +10,9 @@ const options = {
     },
     reducers: {
         addQuiz: (state, action) => {
-            const { quizId, name, topicId, cardIds } = action.payload;
-            state.quizzes[quizId] = {
-              id: quizId,
+            const { quizIds, name, topicId, cardIds } = action.payload;
+            state.quizzes[quizIds] = {
+              id: quizIds,
               name: name,
               topicId: topicId,
               cardIds: cardIds
@@ -21,12 +21,12 @@ const options = {
     }
 };
 
-//action creator returning 
+//action creator 
 export const quizzThunk = quiz => {
  
     const { quizId, name, topicId, cardIds } = quiz;
     if(!topicId){
-            alert('bleh')
+            alert('Please assign quiz to topic')
             return
     }else{
             return (dispatch) => {     
