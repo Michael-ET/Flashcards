@@ -21,8 +21,12 @@ const options = {
 
         addQuizId: (state, action) => {
             const { quizId, topicId } = action.payload;
-            state.topics[topicId].quizIds.push(quizId)
-              
+            if(!topicId){
+                alert('Please assign quiz to topic')
+                return null
+            }else{
+                state.topics[topicId].quizIds.push(quizId) 
+                }
             }
         }
     }
