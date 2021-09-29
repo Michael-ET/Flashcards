@@ -23,19 +23,16 @@ const options = {
 
 //action creator 
 export const quizzThunk = quiz => {
- 
-    const { quizId, name, topicId, cardIds } = quiz;
+    const { quizIds, name, topicId, cardIds } = quiz;
     if(!topicId){
             alert('Please assign quiz to topic')
             return
     }else{
             return (dispatch) => {     
             dispatch(quizSlice.actions.addQuiz(quiz));
-            dispatch(addQuizId( { quizId: quizId, topicId: topicId } ));
+            dispatch(addQuizId( { quizIds: quizIds, topicId: topicId } ));
         }
     }
-    
-
 };
 
 
